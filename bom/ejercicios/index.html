@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box {
+            width: 250px;
+            float: left;
+            margin: 20px;
+        }
+        .dashed {
+            border: 3px dashed black;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <!-- 
+        1.formulario con los campos nombre apellido edad
+        2.boton de enviar el formulario
+        3.mostrar data de formulario por pantalla
+        4.boton que muestre datos actuales del formulario
+     -->
+
+    <h1>ejercicio</h1>
+
+    <div class="box">
+        <form action="#" method="post" id="form" onsubmit="return false">
+
+            <label for="name">Nombre</label>
+            <input type="text" name="name" id="name">
+        
+            <label for="lastName">Apellido</label>
+            <input type="text" name="lastName" id="lastName">
+        
+            <label for="age">Edad</label>
+            <input type="number" name="age" id="age">
+        
+            <input type="submit" value="Enviar" id="submit">
+        
+        </form>
+    </div>
+
+    <div class="box dashed">
+        <h3>informacion del usuario</h3>
+        <hr>
+
+        <p id="p-name">
+            <span></span>
+        </p>
+        <p id="p-lastName">
+            <span></span>
+        </p>
+        <p id="p-age">
+            <span></span>
+        </p>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
