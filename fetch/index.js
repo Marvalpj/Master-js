@@ -8,25 +8,27 @@ var usuarios = []
 
 var boxUsers = document.querySelector("#users")
 var boxUser = document.querySelector("#user")
-
+var boxProf = document.querySelector(".profesor")
     getUsuarios()
     .then( data => data.json() )
     .then(  users => {
         listarUsuarios(users.data)
 
+      
+        return getInfo()
+    })
+    .then(data => {
+        console.log(data)
+        loadTeacher(data)
         return getUsuario()
     })
     .then( data => data.json())
     .then( user => {
         loadDataUser(user.data)
-
-        return getInfo()
     })
-    .then(data => {
-        console.log( 'data: '+ " "+ data)
+    .catch( error => {
+        console.log(error + "error")
     })
-    
-
 
 function getUsuarios(){
     return fetch('https://reqres.in/api/users?page=2')
@@ -47,13 +49,14 @@ function getInfo(){
         var profesor_string = ''
         setTimeout(function(){
             profesor_string = JSON.stringify(profesor)
-        }, 5000)
-        
 
-        if( typeof profesor_string  != 'string'){
-            return reject('error')
-        }    
+            if( typeof profesor_string  != 'string' || profesor_string == ''){
+                return reject('error')
+            }  
+
+            
         return resolve(profesor_string)
+        }, 3000)
     }) 
 }
 
@@ -81,4 +84,11 @@ function loadDataUser( usuario){
     document.querySelector("#user .loading").style.display = "none"
 }
 
+function loadTeacher( prof ){
+    let info = document.createElement("h2")
+    info.innerHTML = prof
+    boxProf.appendChild(info)
 
+    document.querySelector(".profesor #loading").style.display = "none"
+
+}
