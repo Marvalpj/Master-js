@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .data {
+            width: 250px;
+            height: 250px;
+            border: .5px solid green;
+            overflow: scroll;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>ajax</h1>
+    <br>
+    <form action="https://reqres.in/api/users" method="POST" id="form">
+        Nombre:<input type="text" name="first_name">
+        Web:<input type="text" name="web">
+        <input type="submit" value="Registrar">
+    </form>
+    <br>
+
+    <div class="data">
+
+    </div>
+
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="ajax.js"></script>
+</body>
+</html>
