@@ -67,7 +67,7 @@ body{
     padding-right: 30px;
 }
 
-#post {
+#posts {
     width: 60%;
     float: left;
     font-family: Helvetica, sans-serif;
@@ -112,6 +112,118 @@ body{
 }
 
 #sidebar{
-    width: 40%;
-    border: .5px solid black;
+    font-family:  Helvetica, Arial , sans-serif;
+    width: 31%;
+    float: right;
+}
+
+#sidebar h4{
+    margin-top: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+    line-height: 10px;
+    color: #333;
+    background: url('../img/lines.png') repeat-x;
+}
+
+#sidebar h4 span {
+    background: white;
+}
+
+#sidebar img {
+    width: 100%;
+}
+
+#sidebar p {
+    font-size: 15px;
+    text-align: justify;
+}
+
+
+form input[type="text"],
+form input[type="password"],
+form input[type="email"],
+form input[type="number"],
+select
+ {
+    padding: 5px;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    width: 80%;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+form input[type="submit"] {
+    background: #ccc;
+    padding: 10px;
+    border: 1px solid #ccc;
+    color: #333;
+    cursor: pointer;
+}
+
+footer {
+    font-family: Helvetica , Arial;
+    color: white;
+    height: 47px;
+    background: rgba( 51 , 51 , 51 , 0.70);
+    margin: 0px auto;
+    width: 65%;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 50px;
+    line-height: 47px;
+}
+
+.bx-wrapper , .bx-viewport {
+    height: 250px !important;
+}
+
+.subir {
+    color: white;
+    text-decoration: none;
+    display: block;
+    float: right;
+}
+
+#box{
+    width: 60%;
+    float: left;
+    margin-top: 40px;
+}
+
+#acordeon {
+    margin-top: 20px;
+}
+
+.reloj {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Helvetica, Arial;
+    color: #333;
+    border: 1px solid #333;
+    padding: 30px;
+    margin: 0px auto;
+}
+
+#form_contact {
+    width: 50%;
+    margin-top: 15px;
+    font-family: Helvetica, Arial;
+}
+
+#form_contact label {
+    width: 100%;
+    display: block;
+    margin-top: 5px;
+}
+
+.form-error {
+    background: red;
+    color: white;
+    font-family: Helvetica,Arial;
+    font-size: 12px;
+    padding: 10px;
+    /* float: right; */
+    width: 100%;
 }

@@ -7,13 +7,13 @@
     <!-- estilos css -->
     <link rel="stylesheet" href="css/styles.css">
 
-   <!-- slider   -->
-   <!-- // Links to the libraries needed -->
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-   
-    <!-- momentjs -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
 
+    <link rel="stylesheet" href="js/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" href="js/jquery-ui/jquery-ui.structure.min.css">
+    <link rel="stylesheet" href="js/jquery-ui/jquery-ui.theme.min.css">
+
+
+   
 </head>
 <body>
     
@@ -31,27 +31,45 @@
                     <li><a href="reloj.html">Reloj</a></li>
                     <li><a href="contact.html">Contacto</a></li>
                     <li><a href="about.html">Sobre mi</a></li>
+                    <li><a href="#">Contacto</a></li>
                 </ul>
             </nav>
         </header>
 
-        <!-- slider -->
-        <div id="slider">
-            <div class="bxslider">
-                <div><img src="img/cielo.jpg" title="Funky roots"></div>
-                <div><img src="img/hojas.jpg" title="The long and winding road"></div>
-                <div><img src="img/rojo.jpg" title="Happy trees"></div>
-            </div>
-        </div>
+      
 
         <!-- contenido -->
         <section id="contenido">
 
-            <div id="posts">
+            <div id="box">
 
-                <!-- el contenido se carga desde main jsh-->
+              <!-- formulario de contacto -->
+                <h2>Contacto</h2>
+                <form action=""  id="form_contact" action="" method="POST" >
+                    <label for="name">nombre</label>
+                    <input type="text" name="name" data-validation="alphanumeric" >
+                    
+                    <label for="last_name">Apellido</label>
+                    <input type="text" name="last_name" data-validation="alphanumeric">
+                    
+                    <label for="email">Email</label>
+                    <input type="email" name="email" data-validation="email">
+                    
+                    <label for="sexo">Sexo</label>
+                    <select name="sexo" date-validation="required">
+                        <option value="men">hombre</option>
+                        <option value="woman">mujer</option>
+                    </select>
+                    
+                    <label for="date">Fecha de nacimiento</label>
+                    <input type="text" name="date" data-validation="date" data-validation-format="dd/mm/yyyy">
 
-             
+                    <label for="years">Edad</label>
+                    <input type="number" name="years" data-validation="number">
+
+                    <input type="submit" value="enviar">
+
+                </form>
 
             </div>
 
@@ -112,11 +130,13 @@
     </footer>
     
 
-    <!-- lo necesita la libreria para el slider -->
+  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
- 
- 
+    <!-- este es el jquery ui -->
+    <script src="js/jquery-ui/jquery-ui.min.js"></script>
+    <!-- jquery form validator -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+
     <script src="js/main.js"></script>
 </body>
 </html>
