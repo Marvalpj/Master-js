@@ -1,5 +1,25 @@
 //la clase debe llevar el mismo nombre que el archivo
-class Camiseta {
+
+interface CamisetaBase {
+    setColor( color )
+    getColor()
+}
+
+
+//decorador
+function estampar( logo:string ){
+    
+    return function(target:Function){
+        target.prototype.estampacion = function ():void {
+            console.log('camiseta estampada con el logo de: ' + logo)
+        }
+    }
+
+}
+
+
+@estampar(`gola`)
+class Camiseta implements CamisetaBase{
     //propiedaddes
     private color: string
     private modelo: string
@@ -15,35 +35,36 @@ class Camiseta {
         this.talla = talla
         this.precio = precio
     }
-
+    
     //metodos
     public  setColor( color: string ){
         this.color = color
     }
-    public  setModelo( modelo:string ){
-        this.modelo = modelo
-    }
-    public  setMarca( marca:string ){
-        this.marca = marca
-    }
-    public  setTalla( talla:string ){
-        this.talla = talla
-    }
-    public  setPrecio( precio: number ){
-        this.precio = precio
+    public getColor(){
+        return this.color
     }
 
 }
 
 
-// var camiseta = new Camiseta( 'azul', 'camiseta' , 'nike' ,  'L' , 20)
+class Sudadera extends Camiseta {
+    public capucha: boolean
 
-// // camiseta.setColor( 'azul')
+    setCapucha( capucha:boolean ){
+        this.capucha = capucha
+    }
 
+    getCapuha():boolean{
+        return this.capucha
+    }
+}
 
-// var playera = new Camiseta( 'gris', 'playera' , 'adidas' ,  'S' , 30 )
+var camiseta = new Camiseta( 'azul', 'camiseta' , 'nike' ,  'L' , 20)
+console.log(camiseta)
+camiseta.estampacion()
 
-// // playera.setColor('rojo')
+var sudadera = new Sudadera( 'azul', 'sudadera' , 'adidas' ,  'L' , 20)
+sudadera.setCapucha(true)
+sudadera.setColor('gris')
+console.log(sudadera)
 
-// console.log(camiseta)
-// console.log(playera)
