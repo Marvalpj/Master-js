@@ -1,0 +1,40 @@
+<div style= 'background : white'>
+
+    <h2>{{titulo}}</h2>
+    <p>
+        Compra las zapatillas de las mejores marcas
+    </p>
+    <ul>
+        <li *ngFor = '
+            let marca of marcas 
+            let indice  = index'>
+            {{indice + ' ' +marca}}
+        </li>
+    </ul>
+
+    <p>las zapatillas deportivas disponibles</p>
+
+    <ul *ngFor = 'let item of listaDeZapatillas'>
+        <li *ngIf='item.stock' >
+            {{item.nombre}} {{item.precio}}
+            <span 
+                *ngIf = 'item.precio <= 50' 
+                [style.background]= "item.precio <= 50 ? 'green' : 'transparent'">
+                En oferta
+            </span>
+        </li>
+    </ul>
+</div>
+
+<p>El color de la mayoria de las zapatillas es:</p>
+<ul [ngSwitch] = "color" >
+    <li *ngSwitchCase = "'yellow'">
+        el color predominante es el <span [ngStyle]="{'background': color }">amaril;o</span> 
+    </li>
+    <li *ngSwitchCase = "'blue'">
+        el color predominante es el <span [ngStyle]="{'background': color }">azul</span> 
+    </li>
+    <li *ngSwitchCase = "'red'">
+        el color predominante es el <span [ngStyle]="{'background': color }">rojo</span> 
+    </li>
+</ul>

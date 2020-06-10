@@ -1,0 +1,15 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div [ngStyle]= '{ background : config.fondo}'>
+  <h1>
+    Bienvenidos al {{ title }}!
+  </h1>
+  <p>{{  descripcion }}</p>
+
+  <button (click)=' ocultarVideojuegos(false)' *ngIf = 'mostrar_videouegos'>ocultar</button>
+  <button (click)=' ocultarVideojuegos(true)' *ngIf = '!mostrar_videouegos'>mostrar</button>
+
+  <videojuego *ngIf = 'mostrar_videouegos'></videojuego>
+  <zapatillas></zapatillas>
+  <cursos></cursos>
+</div>
+
