@@ -5,6 +5,17 @@
   </h1>
   <p>{{  descripcion }}</p>
 
+  <!-- routing en angular -->
+  <nav>
+    <a [routerLink] = "['/']">Home</a>
+    &nbsp;
+    <a [routerLink] = "['/zapatillas']">zapatillas</a>
+    &nbsp;
+    <a [routerLink] = "['/videojuego']">videojuego</a>
+    &nbsp;
+    <a [routerLink] = "['/cursos']">curso</a>
+  </nav>
+
   <!-- <button (click)=' ocultarVideojuegos(false)' *ngIf = 'mostrar_videouegos'>ocultar</button>
   <button (click)=' ocultarVideojuegos(true)' *ngIf = '!mostrar_videouegos'>mostrar</button>
 
