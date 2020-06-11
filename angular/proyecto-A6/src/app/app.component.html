@@ -5,11 +5,16 @@
   </h1>
   <p>{{  descripcion }}</p>
 
-  <button (click)=' ocultarVideojuegos(false)' *ngIf = 'mostrar_videouegos'>ocultar</button>
+  <!-- <button (click)=' ocultarVideojuegos(false)' *ngIf = 'mostrar_videouegos'>ocultar</button>
   <button (click)=' ocultarVideojuegos(true)' *ngIf = '!mostrar_videouegos'>mostrar</button>
 
   <videojuego *ngIf = 'mostrar_videouegos'></videojuego>
   <zapatillas></zapatillas>
-  <cursos></cursos>
+  <cursos></cursos> -->
+
+    <router-outlet>
+
+    </router-outlet>
+
 </div>
 

@@ -1,4 +1,6 @@
 <div style= 'background : white'>
+    
+    <h2>{{titulo}}</h2>
 
     <p>agregar marca</p>
     <input type="text" [(ngModel)] = "miMarca" (blur) = 'onBlur()' (keyUp.enter) = 'mostrarPalabra()' >
@@ -9,7 +11,6 @@
         <button (click) = 'addMarca()'>agregar</button>
     </p>
 
-    <h2>{{titulo}}</h2>
     <p>
         Compra las zapatillas de las mejores marcas
     </p>
