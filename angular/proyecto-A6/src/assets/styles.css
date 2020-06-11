@@ -1,0 +1,11 @@
+
+.altoPrecio {
+    color: white ;
+    font-size: 18px ;
+}
+.fondoRojo{
+    background: red ;
+}
+.subrayado{
+    text-decoration: line-through;
+}

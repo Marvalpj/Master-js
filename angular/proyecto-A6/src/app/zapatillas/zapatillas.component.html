@@ -1,5 +1,14 @@
 <div style= 'background : white'>
 
+    <p>agregar marca</p>
+    <input type="text" [(ngModel)] = "miMarca" (blur) = 'onBlur()' (keyUp.enter) = 'mostrarPalabra()' >
+    <p>
+        {{miMarca}}
+
+        <button (click) = 'getMarca()'>mostrar</button>
+        <button (click) = 'addMarca()'>agregar</button>
+    </p>
+
     <h2>{{titulo}}</h2>
     <p>
         Compra las zapatillas de las mejores marcas
@@ -9,27 +18,51 @@
             let marca of marcas 
             let indice  = index'>
             {{indice + ' ' +marca}}
+            <button (click) = 'borrarMarca(indice)'>borrar</button>
         </li>
     </ul>
 
     <p>las zapatillas deportivas disponibles</p>
 
-    <ul *ngFor = 'let item of listaDeZapatillas'>
-        <li *ngIf='item.stock' >
-            {{item.nombre}} {{item.precio}}
+    <ul>
+        <li *ngFor = 'let item of listaDeZapatillas'>
+          
+            <span [ngStyle] = "{ 'text-decoration' : !item.stock ? 'line-through' : 'none'}">
+                {{item.nombre}} -
+                <!-- [class.nombre] agrega una clase a una etiqueta si se cumple una condicion -->
+                <!-- [ngClass] = "['fondoRojo' , 'subrayado']"  agrega varias clases -->
+                <!-- agrega varias clases si se cumplen las condiciones -->
+                    <!-- [ngClass] = "{
+                        'fondoRojo' : item.precio > 100 , 
+                        'subrayado' : item.marca == 'nike'
+                    }"> -->
+                <strong 
+                    [class.altoPrecio] = 'item.precio >= 80'
+                    [ngClass] = "{
+                        'fondoRojo' : item.precio > 100 , 
+                        'subrayado' : item.marca == 'nike'
+                    }">
+                    {{item.precio}} $
+                </strong>
+            </span>
+            
             <span 
                 *ngIf = 'item.precio <= 50' 
                 [style.background]= "item.precio <= 50 ? 'green' : 'transparent'">
                 En oferta
             </span>
+           
         </li>
     </ul>
 </div>
 
 <p>El color de la mayoria de las zapatillas es:</p>
+
+<input type="text" [(ngModel)] = 'color'>
+
 <ul [ngSwitch] = "color" >
     <li *ngSwitchCase = "'yellow'">
-        el color predominante es el <span [ngStyle]="{'background': color }">amaril;o</span> 
+        el color predominante es el <span [ngStyle]="{'background': color }">amarillo</span> 
     </li>
     <li *ngSwitchCase = "'blue'">
         el color predominante es el <span [ngStyle]="{'background': color }">azul</span> 
