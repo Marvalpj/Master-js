@@ -2,7 +2,6 @@ import {Component , OnInit} from '@angular/core'
 import {Zapatilla} from '../models/zapatilla'
 import {ZapatillaService} from '../services/zapatillas.service'
 
-import { from } from 'rxjs'
 @Component({
     selector: 'zapatillas',
     templateUrl: './zapatillas.component.html',
