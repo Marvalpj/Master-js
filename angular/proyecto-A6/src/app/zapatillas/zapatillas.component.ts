@@ -1,33 +1,35 @@
 import {Component , OnInit} from '@angular/core'
 import {Zapatilla} from '../models/zapatilla'
+import {ZapatillaService} from '../services/zapatillas.service'
 
+import { from } from 'rxjs'
 @Component({
     selector: 'zapatillas',
-    templateUrl: './zapatillas.component.html'
+    templateUrl: './zapatillas.component.html',
+    // para poder usar un servicio se debe agregar en los providers
+    providers : [ZapatillaService]
+
 })
+
 export class ZapatillasComponent implements OnInit {
     public titulo:string = 'componente zapatillas'
-    public listaDeZapatillas:Array<Zapatilla>
+   
     public marcas:string[]
     public color:string
     public miMarca:string
+    public listaDeZapatillas:Array<Zapatilla>
     
-    constructor(){
-       this.listaDeZapatillas = [
-           new Zapatilla('nike arimax' , 120 , 'nike' , 'red' , true),
-           new Zapatilla('rebook clasic' , 20 , 'rebook' , 'red' , false),
-           new Zapatilla('rebook spatan' , 40 , 'rebook' , 'yellow' , true),
-           new Zapatilla('nike radeon' , 60 , 'nike' , 'blue' , false),
-           new Zapatilla('super stars' , 110 , 'adidas' , 'blanca' , true)
-       ]
+    // En resumen, TypeScript entiende que, si defines la visibilidad de un parámetro en el constructor, o que quieres 
+    // hacer en realidad es crear una propiedad en el objeto recién construido, con el valor recibido por parámetro.
+    constructor(  private _zapatillaServie:ZapatillaService){
        this.marcas = new Array()
        this.color = 'red'
-       console.log(this.color)
        this.miMarca = 'por defecto'
     }
 
     ngOnInit(){
-        console.log(this.listaDeZapatillas)
+        this.listaDeZapatillas = this._zapatillaServie.getZapatillas()
+        alert(this._zapatillaServie.getTexto())
         this.getMarcas()
     }
 
@@ -36,9 +38,7 @@ export class ZapatillasComponent implements OnInit {
             if(this.marcas.indexOf(val.marca) < 0){
                 this.marcas.push(val.marca)
             }
-            console.log(index)
-        })
-        console.log(this.marcas)    
+        })   
     }
     getMarca(){
         alert(this.miMarca)
