@@ -12,6 +12,7 @@ import {HomeComponent} from './home/home.component'
 //array de rutas
 const appRoutes: Routes = [
     {path: '', component: HomeComponent} ,
+    {path: 'home', component: HomeComponent} ,
     {path: 'zapatillas', component: ZapatillasComponent} ,
     {path: 'videojuego', component: VideojuegoComponent} ,
     {path: 'cursos', component: CursosComponent} ,

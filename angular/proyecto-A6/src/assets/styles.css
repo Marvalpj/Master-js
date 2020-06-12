@@ -9,3 +9,6 @@
 .subrayado{
     text-decoration: line-through;
 }
+.active {
+    border: 1px solid yellow;
+}

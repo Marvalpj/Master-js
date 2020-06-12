@@ -7,13 +7,13 @@
 
   <!-- routing en angular -->
   <nav>
-    <a [routerLink] = "['/']">Home</a>
+    <a [routerLink] = "['/home']" [routerLinkActive] = "['active']">Home</a>
     &nbsp;
-    <a [routerLink] = "['/zapatillas']">zapatillas</a>
+    <a [routerLink] = "['/zapatillas']" [routerLinkActive] = "['active']">zapatillas</a>
     &nbsp;
-    <a [routerLink] = "['/videojuego']">videojuego</a>
+    <a [routerLink] = "['/videojuego']" [routerLinkActive] = "['active']">videojuego</a>
     &nbsp;
-    <a [routerLink] = "['/cursos']">curso</a>
+    <a [routerLink] = "['/cursos']" [routerLinkActive] = "['active']">curso</a>
   </nav>
 
   <!-- <button (click)=' ocultarVideojuegos(false)' *ngIf = 'mostrar_videouegos'>ocultar</button>
