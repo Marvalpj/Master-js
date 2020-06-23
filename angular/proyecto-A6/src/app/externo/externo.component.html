@@ -1,6 +1,40 @@
-<h3>coloca un num ero y presiona enter</h3>
+<!-- los que esta despue de | es la pipe -->
+{{fecha | date: 'dd/MM/yyyy'}}<br/>
+{{'probando todo a mayusculas' | uppercase}}<br/>
+{{ 4 | calculadora:2 }}
+<hr>
+
+<h3>coloca un numero y presiona enter</h3>
 <input type="text" [(ngModel)] = 'userId' (keyup.enter)="cargaUsuario()">
+<div *ngIf = "!user">
+  cargando...
+</div>
+
+
 <div class="" *ngIf = 'user'>
   <h2>{{ user.first_name }}{{ user.last_name }}</h2>
   <img src="{{user.avatar}}" width="200px" alt="">
+</div>
+
+<hr>
+<h2>crear usuario</h2>
+
+<form #formNewUser="ngForm" (ngSubmit)="onSubmit(formNewUser)">
+  
+  <p>
+    <label for="name">Nombre:</label>
+    <input type="text" name="name" #name="ngModel" [(ngModel)]="newUser.name">
+  </p>
+  <p>
+    <label for="job">Trabajo</label>
+    <input type="text" name="job" #job="ngModel" [(ngModel)]="newUser.job">
+  </p>
+
+  <input type="submit" value="enviar">
+
+</form>
+
+<div class="" *ngIf="userSave">
+  <h3>{{userSave.name}}</h3>
+  <h3>{{userSave.job}}</h3>
 </div>

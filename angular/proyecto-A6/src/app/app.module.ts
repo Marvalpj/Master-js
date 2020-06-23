@@ -14,6 +14,9 @@ import { HomeComponent } from './home/home.component'
 import {routing , appRoutingProviders} from './app.routing';
 import { ExternoComponent } from './externo/externo.component'
 
+import {CalculadoraPipe} from './pipes/calculadora.pipe';
+import { ContactoComponent } from './contacto/contacto.component'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +24,9 @@ import { ExternoComponent } from './externo/externo.component'
     ZapatillasComponent,
     CursosComponent,
     HomeComponent,
-    ExternoComponent
+    ExternoComponent,
+    CalculadoraPipe,
+    ContactoComponent
   ],
   imports: [
     BrowserModule,
