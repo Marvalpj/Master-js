@@ -1,0 +1,107 @@
+/* importar fuentes */
+@font-face{
+    font-family: "yanone";
+    src: url('../fonts/yanone.ttf');
+}
+@font-face{
+    font-family: "finger";
+    src: url('../fonts/finger.ttf');
+}
+
+/* estilos generales */
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body { 
+    font-family: "yanone" ,Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    background: url('../img/pattern.png');
+    /* para fijar el fondo */
+    background-attachment: fixed;
+}
+
+.clearfix{
+    float: none;
+    clear: both;
+}
+
+/* nav */
+header{
+    width: 100%;
+    height: 90px;
+    background: rgba(53, 103, 164, .8);
+    position: fixed;
+    text-transform: uppercase;
+}
+
+header ul {
+    display: block;
+    width: 40%;
+    /* heredado del pladre */
+    height: inherit;
+    margin: 0px auto;
+    margin-top: -3px;
+}
+
+header ul li {
+    /* poner cada elemento al lado */
+    display: inline-block;
+    margin: 0px auto;
+    text-align: center;
+    line-height: 88px;
+}
+
+header a {
+    display: block;
+    padding-right: 20px;
+    padding-left: 20px;
+    /* altura heredada del padre */
+    height: inherit;
+    text-decoration: none;
+    color: white;
+    transition: all 300ms;
+}
+
+header a:hover ,
+.actived {
+    background: rgba(0, 0, 0, .8);
+}
+/* logo */
+.logo {
+    font-family: "finger";
+    font-size: 30px;
+}
+
+.logo a{
+    transition: color 500ms, transform 500ms;
+}
+
+.logo a:hover {
+    background: transparent;
+    color: black;
+    transform:scale(1.50,1.50) ;
+}
+
+/* contenedor principal */
+
+#content {
+    min-height: 500px;
+    width: 75%;
+    margin: 0px auto;
+    box-shadow: 0px 0px 40px black;
+    border-left: 1px solid #b7b7b7;
+    border-right: 1px solid #b7b7b7;
+    background: rgba(255, 255, 255, .7);
+    padding-top: 120px;
+}
+
+/* footer */
+
+footer{
+    width: 75%;
+    margin: 0px auto;
+    padding-top: 15px;
+    color: rgba(0, 0, 0, .5);
+}

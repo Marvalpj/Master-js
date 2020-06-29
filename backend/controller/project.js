@@ -1,7 +1,7 @@
 'use strict'
 // importando modelo project
 var Project = require('../models/projects')
-const { param } = require('../routes/project')
+var fs = require('fs')
 
 var controller = {
 
@@ -101,6 +101,44 @@ var controller = {
             })
 
         } )
+    },
+    uploadImage: function( req , res){
+        var projectId = req.params.id
+        var fileName = 'imagen no subida...'
+
+      
+
+        if(req.files){
+            //obtener ruta del archivo
+            var filePath = req.files.image.path
+            var fileSplit = filePath.split('/')
+            fileName = fileSplit[1]
+
+            var extSplit = fileName.split('.')
+            var fileExt = extSplit[1]
+
+            if(fileExt == 'png' || fileExt == 'png' || fileExt == 'jpg' || fileExt == 'gif'){
+                Project.findByIdAndUpdate( projectId , {image: fileName} , {new:true} , (err,projectUpdate)=>{
+                    if(err) return res.status(500).send({message:'la imagen no se ha subido'})
+                    if(!projectUpdate) return res.status(404).send({message:'el proyecto no extiste'})
+    
+                    return res.status(200).send({
+                        projects:projectUpdate
+                    })
+                })
+            }else{
+                fs.unlink(filePath , (err)=>{
+                    return res.status(200).send({message:'la extension no es valida'})
+                })
+            }
+
+           
+
+        }else{
+            return res.status(200).send({
+                message:fileName
+            })
+        }
 
     }
 
