@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import {HttpClientModule} from '@angular/common/http'
+
+import {FormsModule} from '@angular/forms'
+
 import {routing , appRoutingProviders} from './app.routing'
 
 import { AppComponent } from './app.component';
@@ -9,6 +13,8 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { CreateComponent } from './components/create/create.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ErrorComponent } from './components/error/error.component';
+
+
 
 @NgModule({
   declarations: [
@@ -20,7 +26,10 @@ import { ErrorComponent } from './components/error/error.component';
     ErrorComponent
   ],
   imports: [
-    BrowserModule,routing
+    BrowserModule,
+    routing,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     appRoutingProviders

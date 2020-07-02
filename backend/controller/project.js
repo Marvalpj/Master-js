@@ -27,6 +27,8 @@ var controller = {
         project.langs = params.langs
         project.image = null
 
+        
+
         project.save( ( err ,projectStored ) => {
             
             if(err) return res.status(500).send({message:'error al guardar'})
@@ -105,9 +107,7 @@ var controller = {
     uploadImage: function( req , res){
         var projectId = req.params.id
         var fileName = 'imagen no subida...'
-
-      
-
+        console.log(req)
         if(req.files){
             //obtener ruta del archivo
             var filePath = req.files.image.path
