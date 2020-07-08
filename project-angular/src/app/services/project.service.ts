@@ -3,6 +3,7 @@ import {HttpClient , HttpHeaders} from '@angular/common/http'
 import {Observable} from 'rxjs'
 import {Project} from '../models/project'
 import {Global} from './globals'
+import { ThrowStmt } from '@angular/compiler'
 
 @Injectable()
 export class ProjectService{
@@ -13,11 +14,6 @@ export class ProjectService{
         this.url = Global.url
     }
 
-
-    testService(){
-        return 'probando el servicio de angular'
-    }
-
     saveProject( project : Project ): Observable<any>{
         let params = JSON.stringify(project)
         //establecer cabeceras, como se van a enviar la info
@@ -25,6 +21,12 @@ export class ProjectService{
         let headers = new HttpHeaders().set('Content-Type' , 'application/json')
 
         return this._http.post(this.url+'save-project' , params , {headers : headers})
+    }
+
+    getProjects():Observable<any>{
+        let headers =  new HttpHeaders().set('Content-Type' , 'application/json')
+
+        return this._http.get( this.url+'projects' , { headers: headers } )
     }
 
 }

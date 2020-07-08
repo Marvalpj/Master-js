@@ -24,7 +24,7 @@ router.put('/project/:id',ProjectControler.updateProject)
 router.delete('/project/:id',ProjectControler.deleteProject)
 //anadir imagen post porque se pasa data al backend
 router.post('/upload-image/:id', multipartMiddelware ,ProjectControler.uploadImage)
-
+router.get('/get-image/:image', ProjectControler.getImageFile)
 
 
 module.exports =  router

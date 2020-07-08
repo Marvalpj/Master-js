@@ -2,6 +2,9 @@
 // importando modelo project
 var Project = require('../models/projects')
 var fs = require('fs')
+//cargar rutas fisicas de files
+var path = require('path')
+const { patch } = require('../routes/project')
 
 var controller = {
 
@@ -26,8 +29,6 @@ var controller = {
         project.year = params.year
         project.langs = params.langs
         project.image = null
-
-        
 
         project.save( ( err ,projectStored ) => {
             
@@ -139,6 +140,22 @@ var controller = {
                 message:fileName
             })
         }
+    },
+    getImageFile: function( req , res){
+        //name of file
+        var file = req.params.image
+        //route of file
+        var path_file = './uploads/'+file
+
+        fs.exists(path_file , (exists) => {
+            if(exists){
+                return res.sendFile(path.resolve(path_file))
+            }else{
+                return res.status(200).send({
+                    message: 'no existe la imagen'
+                })
+            }
+        })
 
     }
 
