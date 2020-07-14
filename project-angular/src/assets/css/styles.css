@@ -155,6 +155,19 @@ article.about {
     padding-top: 10px;
 }
 
+.container .image{
+    float: left;
+    width: 45%;
+}
+.container .image img{
+    width: 100%;
+}
+
+.container .data{
+    float: left;
+    width: 49%;
+    margin-left: 25px ;
+}
 .container h2 {
     border-bottom: 1px solid #ccc;
     padding-bottom: 10px;
@@ -182,7 +195,9 @@ form textarea {
 }
 
 form button,
-form input[type="submit"] {
+form input[type="submit"],
+.button-edit,
+.button-delete  {
     display: block;
     font-size: 17px;
     padding: 5px;
@@ -255,3 +270,29 @@ form input[disabled]{
     width: 100%;
    
 }
+
+.project a {
+    text-decoration: none;
+    color: black;
+}
+
+.button-edit,
+.button-delete {
+   width: 20%;
+   float: left;
+   margin-right: 10px;
+   text-decoration: none;
+}
+
+.button-edit {
+    background: orange;
+    opacity: .8;
+    border: none;
+}
+ 
+.button-delete {
+    background: red;
+    opacity: .8;
+    border: none;
+}
+ 

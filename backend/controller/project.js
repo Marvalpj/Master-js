@@ -4,7 +4,6 @@ var Project = require('../models/projects')
 var fs = require('fs')
 //cargar rutas fisicas de files
 var path = require('path')
-const { patch } = require('../routes/project')
 
 var controller = {
 
@@ -108,7 +107,7 @@ var controller = {
     uploadImage: function( req , res){
         var projectId = req.params.id
         var fileName = 'imagen no subida...'
-        console.log(req)
+        // console.log(req)
         if(req.files){
             //obtener ruta del archivo
             var filePath = req.files.image.path
@@ -133,11 +132,9 @@ var controller = {
                 })
             }
 
-           
-
         }else{
             return res.status(200).send({
-                message:fileName
+                message: fileName
             })
         }
     },
