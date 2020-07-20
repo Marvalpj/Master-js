@@ -5,7 +5,8 @@ export class Project{
         public description:string , 
         public category:string , 
         public langs:string,
-        public year:number
+        public year:number,
+        public image:string
     ){
 
     }

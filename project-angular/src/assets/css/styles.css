@@ -296,3 +296,9 @@ form input[disabled]{
     border: none;
 }
  
+
+.confirm {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}

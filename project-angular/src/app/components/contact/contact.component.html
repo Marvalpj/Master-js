@@ -1,1 +1,21 @@
-<p>contact works!</p>
+<div class="container">
+    <h1>Contact</h1>
+    
+
+    <label for="">tamanio del slider</label>
+    <input type="number" [(ngModel)]="widthSlider">
+    
+    <button (click)="cargarSlider()">cargar slider</button>
+    <button (click)="resetSlider()">reset slider</button>
+
+
+    <div class="" *ngIf="anchuraToSlider">
+
+        <slider [anchura]="anchuraToSlider"
+                [captions]="captions"
+        ></slider>
+    
+    </div>
+
+
+</div>

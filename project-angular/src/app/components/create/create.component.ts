@@ -16,15 +16,16 @@ export class CreateComponent implements OnInit {
   public project:Project
   public status:string
   public filesToUpload:Array<File>
+  public url:string
+
 
   constructor(
     private _projectService:ProjectService,
     private _uploadService:UploadService
   ){ 
     this.title = 'Crear proyecto'
-
-    this.project = new Project('', '','','','',2019)
-
+    this.url = Global.url
+    this.project = new Project('', '','','','',2019,'')
   }
 
   ngOnInit(): void {
@@ -37,7 +38,7 @@ export class CreateComponent implements OnInit {
         if(response.project){
           console.log(response)
           //subir img
-          this._uploadService.makeFileRequest(Global.url+'upload-image/'+response.project._id , [] , this.filesToUpload , 'image')
+          this._uploadService.makeFileRequest(this.url+'upload-image/'+response.project._id , [] , this.filesToUpload , 'image')
           .then((result:any)=>{
             console.log(result)
             this.status = 'succes'
@@ -56,7 +57,7 @@ export class CreateComponent implements OnInit {
 
   fileChangeEvent(fileInput:any){
     this.filesToUpload = <Array<File>>fileInput.target.files
-    console.log( this.filesToUpload)
+    // console.log( this.filesToUpload)
   }
 
 }

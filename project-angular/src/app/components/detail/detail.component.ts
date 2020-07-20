@@ -16,6 +16,7 @@ export class DetailComponent implements OnInit {
 
   public url:string
   public project:Project
+  public confirm:boolean
 
   constructor(
     private _projectService : ProjectService,
@@ -23,6 +24,7 @@ export class DetailComponent implements OnInit {
     private _route:ActivatedRoute
   ) { 
     this.url = Global.url
+    this.confirm = false
   }
 
   ngOnInit(): void {
@@ -36,7 +38,7 @@ export class DetailComponent implements OnInit {
     this._projectService.getProject(id).subscribe(
       response =>{
         this.project = response.project
-        // console.log(this.project)
+        console.log(this.project)
       },
       err =>{
         console.log(err)
@@ -56,6 +58,10 @@ export class DetailComponent implements OnInit {
         console.log(err)
       }
     )
+  }
+
+  setConfirm(confirm){
+    this.confirm = confirm
   }
 
 }
